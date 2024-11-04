@@ -1,8 +1,7 @@
 package tcs.com.flights_booking_system.entities;
 
 import java.io.Serializable;
-
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -15,9 +14,6 @@ import jakarta.persistence.Table;
 @Table(name = "flight")
 public class FlightEntity implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -25,69 +21,68 @@ public class FlightEntity implements Serializable {
 	@Column(name = "flight_id", unique = true, nullable = false)
 	private Long id;
 	
-
-	@Column (name = "city_origin")
+	@Column(name = "city_origin")
 	private String cityOrigin;
 	
-	@Column (name = "city_destination")
+	@Column(name = "city_destination")
 	private String cityDestination;
 	
-	@Column (name = "departure_date_time")
-	private Date departureDateTime;
+	@Column(name = "departure_date_time")
+	private LocalDateTime departureDateTime;
 	
-	@Column (name = "price")
+	@Column(name = "price")
 	private Double price;
 	
-	//Empty Constructor
+	// Empty Constructor
 	public FlightEntity() {}
 	
-	//All Constructor
-	
-	public FlightEntity (Long id, String cityOrigin, String cityDestination, Date departureTime, Double price) {
+	// All Constructor
+	public FlightEntity(Long id, String cityOrigin, String cityDestination, LocalDateTime departureDateTime, Double price) {
 		this.id = id;
 		this.cityOrigin = cityOrigin;
 		this.cityDestination = cityDestination;
-		this.departureDateTime = departureTime;
+		this.departureDateTime = departureDateTime;
 		this.price = price;
 	}
-	
+
+	// Getters and Setters
 	public Long getId() {
 		return id;
 	}
 	
-	public void setId (Long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	
-	public String getCityOrigin () {
+	public String getCityOrigin() {
 		return cityOrigin;
 	}
 	
-	public void setCityOrigin (String cityOrigin) {
+	public void setCityOrigin(String cityOrigin) {
 		this.cityOrigin = cityOrigin;
 	}
 	
-	public String getCityDestination () {
+	public String getCityDestination() {
 		return cityDestination;
 	}
 	
-	public void setCityDestination (String cityDestination) {
+	public void setCityDestination(String cityDestination) {
 		this.cityDestination = cityDestination;
 	}
 	
-	public Date getDepartureTime () {
+	public LocalDateTime getDepartureDateTime() {
 		return departureDateTime;
 	}
 	
-	public void setDepartureTime (Date departureDateTime) {
+	public void setDepartureDateTime(LocalDateTime departureDateTime) {
 		this.departureDateTime = departureDateTime;
 	}
 	
-	public Double setPrice () {
+	public Double getPrice() {
 		return price;
 	}
 	
-	public void setPrice (Double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 }

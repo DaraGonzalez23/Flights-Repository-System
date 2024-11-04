@@ -1,9 +1,11 @@
 package tcs.com.flights_booking_system.utils;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import tcs.com.flights_booking_system.entities.FlightEntity;
 import tcs.com.flights_booking_system.repositories.FlightRepository;
 import tcs.com.flights_booking_system.services.FlightService;
@@ -56,4 +58,29 @@ public class FlightServiceImplement implements FlightService {
 
 	}
 
+	@Override
+	public boolean isExist(Long id) {
+		return flightRepository.existsById(id);
+	}
+
+	@Override
+	public List<FlightEntity> searchCityOrigin(String cityOrigin) {
+		return flightRepository.searchCityOrigin(cityOrigin);
+	}
+
+	@Override
+	public List<FlightEntity> searchCityDestination(String cityDestination) {
+		return flightRepository.searchCityDestination(cityDestination);
+	}
+
+	@Override
+	public List<FlightEntity> rangePrice(Double min, Double max) {
+		return flightRepository.rangePrice(min, max);
+	}
+
+
+	@Override
+	public List<FlightEntity> searchDepartureDateTime(LocalDateTime startDate, LocalDateTime endDate) {
+		return flightRepository.searchDepartureDateTime(startDate, endDate);
+	}
 }
